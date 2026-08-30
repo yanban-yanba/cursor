@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>曾嘉杰 · 个人简历</title>
+  <style>
+    /* 沿用原稿：顶栏校徽 + 个人信息右侧一寸照，一页 A4 可打印 */
+    :root {
+      --navy: #163a66;
+      --navy-2: #1f4e86;
+      --ink: #1a2332;
+      --muted: #5a6573;
+      --line: #d5dbe3;
+      --chip: #e8eef5;
+      --page-w: 210mm;
+      --page-h: 297mm;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: #dfe6ee;
+      color: var(--ink);
+      font-family: "WenQuanYi Micro Hei", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 12.2px;
+      line-height: 1.45;
+    }
+
+    .hint {
+      max-width: var(--page-w);
+      margin: 16px auto 10px;
+      padding: 10px 14px;
+      background: #fff;
+      border-left: 4px solid var(--navy);
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .hint strong { color: var(--ink); }
+
+    .page {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      margin: 0 auto 24px;
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(22, 58, 102, 0.14);
+      overflow: hidden;
+    }
+
+    .banner {
+      background: var(--navy);
+      color: #fff;
+      padding: 8px 16mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .banner h1 {
+      font-size: 22px;
+      letter-spacing: 6px;
+      font-weight: 700;
+    }
+
+    .banner .badge {
+      height: 46px;
+      width: auto;
+      display: block;
+      background: #fff;
+      border-radius: 4px;
+      padding: 2px;
+    }
+
+    .body {
+      padding: 5mm 15mm 6mm;
+    }
+
+    .who {
+      display: grid;
+      grid-template-columns: 1fr 26mm;
+      gap: 16px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 62px minmax(0, 1.15fr) 62px minmax(0, 1fr);
+      row-gap: 6px;
+      column-gap: 8px;
+      align-items: baseline;
+    }
+
+    .facts dt {
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .facts dd {
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .facts a { color: var(--navy-2); text-decoration: none; }
+
+    .photo {
+      width: 26mm;
+      height: 36mm;
+      object-fit: cover;
+      object-position: center 12%;
+      border: 1px solid var(--line);
+      display: block;
+    }
+
+    section { margin-top: 7px; }
+
+    .h {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 5px;
+    }
+
+    .h .zh {
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 3px 12px 3px 10px;
+      letter-spacing: 1px;
+    }
+
+    .h .en {
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 11.5px;
+      padding: 4px 12px 3px;
+      display: flex;
+      align-items: center;
+    }
+
+    .edu-row, .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .edu-row .left, .item-head .left { font-weight: 700; }
+
+    .when { color: var(--muted); white-space: nowrap; font-size: 12.5px; }
+
+    .sub { color: var(--muted); margin: 2px 0 5px; }
+
+    ul { padding-left: 1.15em; }
+    li { margin: 2px 0; }
+
+    .item + .item { margin-top: 5px; }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      row-gap: 5px;
+      column-gap: 10px;
+    }
+
+    .skills dt {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    @media print {
+      html, body { background: #fff; }
+      .hint { display: none; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        min-height: auto;
+      }
+      .banner, .h .zh, .h .en {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page { size: A4; margin: 8mm 10mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hint">
+    <strong>本页为按原稿改写的投递版。</strong>
+    浏览器打开后用「打印 → 另存为 PDF」。经历只保留你简历里写过的事实，没有补 GPA、竞赛或量化数字。
+  </div>
+
+  <article class="page">
+    <div class="banner">
+      <h1>个人简历</h1>
+      <img class="badge" src="assets/sztu-badge.png" alt="深圳技术大学校徽">
+    </div>
+
+    <div class="body">
+      <div class="who">
+        <div>
+          <div class="name">曾嘉杰</div>
+          <dl class="facts">
+            <dt>求职意向</dt>
+            <dd>AI 工程师 / FDE（落地交付）</dd>
+            <dt>出生年月</dt>
+            <dd>2005.05</dd>
+            <dt>毕业院校</dt>
+            <dd>深圳技术大学</dd>
+            <dt>学历专业</dt>
+            <dd>本科 · 物联网工程</dd>
+            <dt>联系电话</dt>
+            <dd>13066948172</dd>
+            <dt>电子邮箱</dt>
+            <dd><a href="mailto:202200201121@stumail.sztu.edu.cn">202200201121@stumail.sztu.edu.cn</a></dd>
+          </dl>
+        </div>
+        <img class="photo" src="assets/photo-1inch.jpg" alt="曾嘉杰证件照">
+      </div>
+
+      <section>
+        <div class="h"><span class="zh">教育背景</span><span class="en">Education</span></div>
+        <div class="edu-row">
+          <div class="left">深圳技术大学　物联网工程　本科</div>
+          <div class="when">2022.09 – 2026.06</div>
+        </div>
+        <div class="sub">主修：数据结构、信息安全、微机原理与接口技术、电子技术基础、操作系统</div>
+      </section>
+
+      <section>
+        <div class="h"><span class="zh">专业技能</span><span class="en">Skills</span></div>
+        <dl class="skills">
+          <dt>应用开发</dt>
+          <dd>熟练 Python、C++；LangChain；多模型统一接入与切换；熟练用 Cursor 做 Agent 辅助开发（拆需求、改代码、联调）</dd>
+          <dt>模型微调</dt>
+          <dd>HuggingFace Transformers、bert-base-chinese；Trainer API、LoRA 微调中文文本二分类（垃圾短信/邮件，输出 0/1）</dd>
+          <dt>大模型</dt>
+          <dd>Prompt 角色与约束；RAG（数据采集、切块、BM25）；LangChain @tool / create_agent、DashScope（ChatTongyi）工具编排</dd>
+          <dt>实施交付</dt>
+          <dd>需求调研、业务蓝图、PLM 配置与测试上线、关键用户培训；BOM / 研发主数据梳理</dd>
+        </dl>
+      </section>
+
+      <section>
+        <div class="h"><span class="zh">项目经历</span><span class="en">Projects</span></div>
+        <div class="item">
+          <div class="item-head">
+            <div class="left">AI 教学助手　全栈开发</div>
+            <div class="when">2024.03 – 2024.06</div>
+          </div>
+          <div class="sub">Vue · ElementUI · Gemini / GPT-4 / DeepSeek · Prompt · RAG · BM25</div>
+          <ul>
+            <li>和任课老师对齐助教场景后，用 Vue + ElementUI 做问答页，后端统一封装 Gemini、GPT-4、DeepSeek，页面可切换模型。</li>
+            <li>Prompt 把模型收成编程课助教：只提示思路和检查步骤，禁止直接输出完整代码。</li>
+            <li>爬取校内 OJ 编程题并切块，用 BM25 做关键词改写与检索后再送给模型，让回答落到具体题目。</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <div class="left">基于工具调用的故障诊断 Agent</div>
+          </div>
+          <div class="sub">LangChain · @tool · create_agent · DashScope / ChatTongyi</div>
+          <ul>
+            <li>用户用自然语言描述现象（服务连不上、DNS 解析失败），Agent 规划后调用 Ping、DNS 解析、网卡检查、日志检索，汇总后给出结论和处理建议。</li>
+            <li>用 @tool 定义 ping_tool、dns_tool、interface_check_tool、log_analysis_tool，写清 docstring 和参数类型，让模型判断何时调用、传什么。</li>
+            <li>把 ChatTongyi 和工具列表交给 create_agent，按「规划-调用-再推理」执行：看工具结果再决定继续查还是直接给诊断。</li>
+          </ul>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <div class="left">垃圾邮件分类器　BERT 微调</div>
+          </div>
+          <div class="sub">HuggingFace Transformers · bert-base-chinese · Trainer API</div>
+          <ul>
+            <li>针对诈骗、广告、恶意链接等垃圾短信/邮件，微调 bert-base-chinese 做二分类：输入一段文本，输出 0（正常）或 1（垃圾）。</li>
+            <li>用 Transformers 加载中文预训练 BERT 并接分类头，tokenizer 编码文本，data_collator 组 batch，不手写训练循环。</li>
+            <li>Trainer + TrainingArguments：learning_rate=2e-5、batch_size=4、3 个 epoch、weight_decay=0.01，每个 epoch 评估并保存检查点。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="h"><span class="zh">实习经历</span><span class="en">Internship</span></div>
+        <div class="item-head">
+          <div class="left">金蝶软件　PLM 实施顾问</div>
+          <div class="when">2025.09 – 2026.01</div>
+        </div>
+        <ul>
+          <li>跟完一次 PLM 实施闭环：需求调研、方案与业务蓝图、系统配置、测试、上线，并给关键用户做操作培训。</li>
+          <li>梳理产品研发与 BOM 维护路径，把物料和清单收到系统里的一份主数据上，减少跨部门来回改数。</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="h"><span class="zh">自我评价</span><span class="en">Summary</span></div>
+        <ul>
+          <li>既能调 API 做 RAG / Agent，也能用 HuggingFace 微调 bert-base-chinese 做中文垃圾邮件二分类，不停留在聊天窗口。</li>
+          <li>在金蝶做过实施：问清业务、写成方案、配到系统、教会用户，适应现场联调和返工。</li>
+          <li>物联网工程出身，求职 AI 应用开发或 FDE，做能写出来也能落地的一侧。</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+</body>
+</html>
