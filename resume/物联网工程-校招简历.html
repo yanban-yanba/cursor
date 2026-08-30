@@ -23,8 +23,8 @@
       background: #dfe6ee;
       color: var(--ink);
       font-family: "WenQuanYi Micro Hei", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: 13px;
-      line-height: 1.58;
+      font-size: 12.5px;
+      line-height: 1.5;
     }
 
     .hint {
@@ -73,7 +73,7 @@
     }
 
     .body {
-      padding: 8mm 16mm 10mm;
+      padding: 6mm 15mm 8mm;
     }
 
     .who {
@@ -122,7 +122,7 @@
       display: block;
     }
 
-    section { margin-top: 13px; }
+    section { margin-top: 10px; }
 
     .h {
       display: flex;
@@ -162,7 +162,9 @@
     .sub { color: var(--muted); margin: 2px 0 5px; }
 
     ul { padding-left: 1.15em; }
-    li { margin: 3px 0; }
+    li { margin: 2px 0; }
+
+    .item + .item { margin-top: 8px; }
 
     .skills {
       display: grid;
@@ -239,29 +241,39 @@
         <div class="h"><span class="zh">专业技能</span><span class="en">Skills</span></div>
         <dl class="skills">
           <dt>应用开发</dt>
-          <dd>Vue、ElementUI；用统一接口接入 Gemini、GPT-4、DeepSeek，页面侧切换模型</dd>
+          <dd>Vue、ElementUI；多模型统一接入与切换；熟练用 Cursor 做 Agent 辅助开发（拆需求、改代码、联调）</dd>
           <dt>大模型</dt>
-          <dd>Prompt 角色与约束；RAG（题库采集、文本分块、BM25 检索与查询改写）</dd>
+          <dd>Prompt 角色与约束；RAG（题库采集、切块、BM25）；LangChain @tool / create_agent、DashScope（ChatTongyi）工具编排</dd>
           <dt>实施交付</dt>
           <dd>需求调研、业务蓝图、PLM 配置与测试上线、关键用户培训；BOM / 研发主数据梳理</dd>
-          <dt>协作</dt>
-          <dd>需求与方案文档；和老师、业务用户对齐场景后再落系统</dd>
         </dl>
       </section>
 
       <section>
         <div class="h"><span class="zh">项目经历</span><span class="en">Projects</span></div>
-        <div class="item-head">
-          <div class="left">AI 教学助手　全栈开发</div>
-          <div class="when">2024.03 – 2024.06</div>
+        <div class="item">
+          <div class="item-head">
+            <div class="left">AI 教学助手　全栈开发</div>
+            <div class="when">2024.03 – 2024.06</div>
+          </div>
+          <div class="sub">Vue · ElementUI · Gemini / GPT-4 / DeepSeek · Prompt · RAG · BM25</div>
+          <ul>
+            <li>和任课老师对齐助教场景后，用 Vue + ElementUI 做问答页，后端统一封装 Gemini、GPT-4、DeepSeek，页面可切换模型。</li>
+            <li>Prompt 把模型收成编程课助教：只提示思路和检查步骤，禁止直接输出完整代码。</li>
+            <li>爬取校内 OJ 编程题并切块，用 BM25 做关键词改写与检索后再送给模型，让回答落到具体题目。</li>
+          </ul>
         </div>
-        <div class="sub">Vue · ElementUI · Gemini / GPT-4 / DeepSeek · Prompt · RAG · BM25</div>
-        <ul>
-          <li>和任课老师对齐助教场景：按题目上下文带学生想，而不是直接给答案；据此写需求与方案，再定「多模型 + RAG」。</li>
-          <li>Vue + ElementUI 做问答页；后端统一封装 Gemini、GPT-4、DeepSeek，页面可切换模型，避免每个模型各写一套调用。</li>
-          <li>Prompt 把模型收成编程课助教：只提示思路和检查步骤，禁止直接输出完整代码。</li>
-          <li>爬取校内 OJ 编程题并切块，用 BM25 做关键词改写与检索后再送给模型，让回答落到具体题目。</li>
-        </ul>
+        <div class="item">
+          <div class="item-head">
+            <div class="left">基于工具调用的故障诊断 Agent</div>
+          </div>
+          <div class="sub">LangChain · @tool · create_agent · DashScope / ChatTongyi</div>
+          <ul>
+            <li>用户用自然语言描述现象（服务连不上、DNS 解析失败），Agent 规划后调用 Ping、DNS 解析、网卡检查、日志检索，汇总后给出结论和处理建议。</li>
+            <li>用 @tool 定义 ping_tool、dns_tool、interface_check_tool、log_analysis_tool，写清 docstring 和参数类型，让模型判断何时调用、传什么。</li>
+            <li>把 ChatTongyi 和工具列表交给 create_agent，按「规划-调用-再推理」执行：看工具结果再决定继续查还是直接给诊断。</li>
+          </ul>
+        </div>
       </section>
 
       <section>
@@ -279,7 +291,7 @@
       <section>
         <div class="h"><span class="zh">自我评价</span><span class="en">Summary</span></div>
         <ul>
-          <li>能把大模型接到真实场景：页面、多模型 API、Prompt 约束和 RAG 检索一起做完，而不是只接一个聊天窗口。</li>
+          <li>能把大模型接到真实场景：页面 + RAG，或工具编排做故障诊断，而不是只接一个聊天窗口。</li>
           <li>在金蝶做过实施：问清业务、写成方案、配到系统、教会用户，适应现场联调和返工。</li>
           <li>物联网工程出身，求职 AI 应用开发或 FDE，做能写出来也能落地的一侧。</li>
         </ul>
