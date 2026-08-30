@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>物联网工程 · 校招简历</title>
+  <title>曾嘉杰 · 个人简历</title>
   <style>
-    /* 一页 A4：屏幕预览与打印共用同一套尺寸，避免预览和导出不一致 */
+    /* 沿用原稿的蓝灰分区，改成一页 A4 可打印，去掉照片和校徽占位 */
     :root {
+      --navy: #163a66;
+      --navy-2: #1f4e86;
       --ink: #1a2332;
-      --muted: #4a5568;
-      --line: #c5cdd6;
-      --accent: #1b4f8a;
-      --todo-bg: #fff6d6;
-      --todo-ink: #8a6d1b;
+      --muted: #5a6573;
+      --line: #d5dbe3;
+      --chip: #e8eef5;
       --page-w: 210mm;
       --page-h: 297mm;
     }
@@ -20,11 +20,11 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
-      background: #e8edf3;
+      background: #dfe6ee;
       color: var(--ink);
       font-family: "WenQuanYi Micro Hei", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
       font-size: 13px;
-      line-height: 1.55;
+      line-height: 1.58;
     }
 
     .hint {
@@ -32,8 +32,7 @@
       margin: 16px auto 10px;
       padding: 10px 14px;
       background: #fff;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid var(--navy);
       color: var(--muted);
       font-size: 12.5px;
     }
@@ -44,29 +43,55 @@
       width: var(--page-w);
       min-height: var(--page-h);
       margin: 0 auto 24px;
-      padding: 14mm 15mm 12mm;
       background: #fff;
-      box-shadow: 0 8px 28px rgba(26, 35, 50, 0.12);
+      box-shadow: 0 8px 28px rgba(22, 58, 102, 0.14);
+      overflow: hidden;
     }
 
-    header {
+    .banner {
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 16mm 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .banner h1 {
+      font-size: 22px;
+      letter-spacing: 6px;
+      font-weight: 700;
+    }
+
+    .banner .school {
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      opacity: 0.92;
+    }
+
+    .body {
+      padding: 8mm 16mm 10mm;
+    }
+
+    .who {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--accent);
+      gap: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
     }
 
     .name {
       font-size: 26px;
       font-weight: 700;
-      letter-spacing: 2px;
-      line-height: 1.2;
+      letter-spacing: 3px;
+      line-height: 1.15;
     }
 
     .intent {
       margin-top: 4px;
-      color: var(--accent);
+      color: var(--navy-2);
       font-size: 13.5px;
       font-weight: 700;
     }
@@ -78,17 +103,32 @@
       line-height: 1.7;
     }
 
-    .meta a { color: var(--accent); text-decoration: none; }
+    .meta a { color: var(--navy-2); text-decoration: none; }
 
     section { margin-top: 13px; }
 
-    h2 {
-      font-size: 14.5px;
-      color: var(--accent);
+    .h {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 8px;
+    }
+
+    .h .zh {
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 3px 12px 3px 10px;
       letter-spacing: 1px;
-      padding-bottom: 3px;
-      margin-bottom: 7px;
-      border-bottom: 1px solid var(--line);
+    }
+
+    .h .en {
+      background: var(--chip);
+      color: var(--muted);
+      font-size: 11.5px;
+      padding: 4px 12px 3px;
+      display: flex;
+      align-items: center;
     }
 
     .edu-row, .item-head {
@@ -102,163 +142,118 @@
 
     .when { color: var(--muted); white-space: nowrap; font-size: 12.5px; }
 
-    .sub { color: var(--muted); margin: 2px 0 4px; }
+    .sub { color: var(--muted); margin: 2px 0 5px; }
 
     ul { padding-left: 1.15em; }
-
-    li { margin: 2px 0; }
+    li { margin: 3px 0; }
 
     .skills {
       display: grid;
-      grid-template-columns: 72px 1fr;
-      row-gap: 4px;
-      column-gap: 8px;
+      grid-template-columns: 64px 1fr;
+      row-gap: 5px;
+      column-gap: 10px;
     }
 
     .skills dt {
       font-weight: 700;
-      color: var(--accent);
-    }
-
-    .skills dd { color: var(--ink); }
-
-    .todo {
-      background: var(--todo-bg);
-      color: var(--todo-ink);
-      padding: 0 3px;
-      border-radius: 2px;
-    }
-
-    footer.note {
-      margin-top: 14px;
-      padding-top: 8px;
-      border-top: 1px dashed var(--line);
-      color: var(--muted);
-      font-size: 11.5px;
+      color: var(--navy);
     }
 
     @media print {
       html, body { background: #fff; }
-      .hint, footer.note { display: none; }
+      .hint { display: none; }
       .page {
         margin: 0;
         box-shadow: none;
         min-height: auto;
       }
-      .todo {
-        background: transparent;
-        color: inherit;
-        padding: 0;
-      }
-      @page { size: A4; margin: 10mm 12mm; }
+      @page { size: A4; margin: 8mm 10mm; }
     }
   </style>
 </head>
 <body>
   <div class="hint">
-    <strong>填写说明（打印时自动隐藏）：</strong>
-    仓库里没有你的原稿，这一版按 26 届物联网工程校招一页纸来写。
-    标黄的 <span class="todo">【】</span> 必须改成真实信息；项目条目是课设/综训里常见的写法，只保留你亲手做过的模块，并补上真实数字。
-    浏览器打开后用「打印 → 另存为 PDF」，边距选默认即可。
+    <strong>本页为按原稿改写的投递版。</strong>
+    浏览器打开后用「打印 → 另存为 PDF」。经历只保留你简历里写过的事实，没有补 GPA、竞赛或量化数字。
   </div>
 
   <article class="page">
-    <header>
-      <div>
-        <div class="name"><span class="todo">【姓名】</span></div>
-        <div class="intent">求职意向：嵌入式软件开发 / 物联网应用开发</div>
+    <div class="banner">
+      <h1>个人简历</h1>
+      <div class="school">深圳技术大学 · 物联网工程</div>
+    </div>
+
+    <div class="body">
+      <div class="who">
+        <div>
+          <div class="name">曾嘉杰</div>
+          <div class="intent">求职意向：AI 工程师 / FDE（落地交付）</div>
+        </div>
+        <div class="meta">
+          <div>2005.05　电话 13066948172</div>
+          <div>邮箱 <a href="mailto:202200201121@stumail.sztu.edu.cn">202200201121@stumail.sztu.edu.cn</a></div>
+        </div>
       </div>
-      <div class="meta">
-        <div>电话 <span class="todo">【1xxxxxxxxxx】</span>　邮箱 1709689699@qq.com</div>
-        <div>GitHub <a href="https://github.com/yanban-yanba">github.com/yanban-yanba</a></div>
-        <div>意向城市 <span class="todo">【城市 / 可接受出差】</span></div>
-      </div>
-    </header>
 
-    <section>
-      <h2>教育背景</h2>
-      <div class="edu-row">
-        <div class="left"><span class="todo">【学校全称】</span>　物联网工程　本科</div>
-        <div class="when">2022.09 – 2026.06</div>
-      </div>
-      <div class="sub">
-        GPA <span class="todo">【x.x / 4.0，或专业前 xx%，不突出就整行删掉】</span>
-        　英语 <span class="todo">【CET-4 xxx / CET-6 xxx】</span>
-      </div>
-      <div>主修：单片机原理、嵌入式系统、传感器与检测技术、物联网通信技术、计算机网络、操作系统、数据结构、C 语言程序设计</div>
-    </section>
+      <section>
+        <div class="h"><span class="zh">教育背景</span><span class="en">Education</span></div>
+        <div class="edu-row">
+          <div class="left">深圳技术大学　物联网工程　本科</div>
+          <div class="when">2022.09 – 2026.06</div>
+        </div>
+        <div class="sub">主修：数据结构、信息安全、微机原理与接口技术、电子技术基础、操作系统</div>
+      </section>
 
-    <section>
-      <h2>专业技能</h2>
-      <dl class="skills">
-        <dt>语言</dt>
-        <dd>C（课设与项目主力）；C++ 基础语法与面向对象；Python 做串口脚本、日志解析和简单数据处理</dd>
-        <dt>嵌入式</dt>
-        <dd>STM32 HAL + CubeMX；ESP32（Arduino / ESP-IDF 二选一写实）；FreeRTOS 任务、队列、软件定时器；GPIO / USART / I2C / SPI / ADC / PWM</dd>
-        <dt>物联网</dt>
-        <dd>MQTT（连接、订阅发布、QoS、LWT、断线重连）；HTTP JSON 上报；TCP/UDP；<span class="todo">【OneNET / 阿里云 IoT / EMQX，用过哪个写哪个】</span></dd>
-        <dt>工具</dt>
-        <dd>Linux 常用命令与交叉编译流程；Git；Keil / VS Code；串口助手；<span class="todo">【示波器 / 逻辑分析仪，用过再写】</span></dd>
-      </dl>
-    </section>
+      <section>
+        <div class="h"><span class="zh">专业技能</span><span class="en">Skills</span></div>
+        <dl class="skills">
+          <dt>应用开发</dt>
+          <dd>Vue、ElementUI；用统一接口接入 Gemini、GPT-4、DeepSeek，页面侧切换模型</dd>
+          <dt>大模型</dt>
+          <dd>Prompt 角色与约束；RAG（题库采集、文本分块、BM25 检索与查询改写）</dd>
+          <dt>实施交付</dt>
+          <dd>需求调研、业务蓝图、PLM 配置与测试上线、关键用户培训；BOM / 研发主数据梳理</dd>
+          <dt>协作</dt>
+          <dd>需求与方案文档；和老师、业务用户对齐场景后再落系统</dd>
+        </dl>
+      </section>
 
-    <section>
-      <h2>项目经历</h2>
+      <section>
+        <div class="h"><span class="zh">项目经历</span><span class="en">Projects</span></div>
+        <div class="item-head">
+          <div class="left">AI 教学助手　全栈开发</div>
+          <div class="when">2024.03 – 2024.06</div>
+        </div>
+        <div class="sub">Vue · ElementUI · Gemini / GPT-4 / DeepSeek · Prompt · RAG · BM25</div>
+        <ul>
+          <li>和任课老师对齐助教场景：按题目上下文带学生想，而不是直接给答案；据此写需求与方案，再定「多模型 + RAG」。</li>
+          <li>Vue + ElementUI 做问答页；后端统一封装 Gemini、GPT-4、DeepSeek，页面可切换模型，避免每个模型各写一套调用。</li>
+          <li>Prompt 把模型收成编程课助教：只提示思路和检查步骤，禁止直接输出完整代码。</li>
+          <li>爬取校内 OJ 编程题并切块，用 BM25 做关键词改写与检索后再送给模型，让回答落到具体题目。</li>
+        </ul>
+      </section>
 
-      <div class="item-head">
-        <div class="left">室内环境监测与云端上报系统　角色：嵌入式 / 通信</div>
-        <div class="when"><span class="todo">【202x.xx – 202x.xx】</span></div>
-      </div>
-      <div class="sub">ESP32 · DHT22 / BH1750 · FreeRTOS · MQTT · JSON　<span class="todo">【课设 / 综训 / 毕设，写真实来源】</span></div>
-      <ul>
-        <li>用 I2C / 单总线读取温湿度与光照，按固定 JSON 字段打包，经 Wi-Fi 以 MQTT 发布到 <span class="todo">【EMQX / OneNET / 阿里云】</span>，QoS 与主题分层和网关约定一致。</li>
-        <li>FreeRTOS 拆成采集、联网、上报三个任务，队列传数据，避免在 Wi-Fi 回调里做阻塞 I/O；断网时写入本地环形缓冲，恢复后补传。</li>
-        <li>写了订阅端页面做折线展示和阈值告警；连续跑 <span class="todo">【x】</span> 小时，统计丢包 / 重连次数并写进报告。</li>
-      </ul>
+      <section>
+        <div class="h"><span class="zh">实习经历</span><span class="en">Internship</span></div>
+        <div class="item-head">
+          <div class="left">金蝶软件　PLM 实施顾问</div>
+          <div class="when">2025.09 – 2026.01</div>
+        </div>
+        <ul>
+          <li>跟完一次 PLM 实施闭环：需求调研、方案与业务蓝图、系统配置、测试、上线，并给关键用户做操作培训。</li>
+          <li>梳理产品研发与 BOM 维护路径，把物料和清单收到系统里的一份主数据上，减少跨部门来回改数。</li>
+        </ul>
+      </section>
 
-      <div class="item-head" style="margin-top:10px;">
-        <div class="left">STM32 智能控制节点（继电器通断 + 过流保护）　角色：单片机开发</div>
-        <div class="when"><span class="todo">【202x.xx – 202x.xx】</span></div>
-      </div>
-      <div class="sub">STM32F103 · HAL · ADC · USART · 继电器　<span class="todo">【课设 / 综训】</span></div>
-      <ul>
-        <li>CubeMX 配时钟与外设，HAL 完成按键消抖、继电器驱动和 ADC 电流采样；超过阈值切断输出并 USART 上报故障码。</li>
-        <li>与上位机约定二进制帧（帧头、长度、命令、校验），实现查询状态、远程通断、修改阈值三条命令。</li>
-        <li>用串口日志定位偶发误动作，加上软件滤波和动作死区后，联调误触发降到可接受范围。</li>
-      </ul>
-
-      <div class="item-head" style="margin-top:10px;">
-        <div class="left"><span class="todo">【毕设或最能代表你的第三个项目名称】</span>　角色：<span class="todo">【你的分工】</span></div>
-        <div class="when"><span class="todo">【2025.xx – 2026.xx】</span></div>
-      </div>
-      <div class="sub"><span class="todo">【MCU / 协议 / 云平台 / 仓库地址】</span></div>
-      <ul>
-        <li>先写系统边界：采集什么、传到哪、谁来展示或控制，避免只写“完成了智能家居”。</li>
-        <li>再写你独立做的模块（驱动、协议、低功耗、标定、上位机），点名用过的外设和库。</li>
-        <li>最后写结果：跑通的指标、修掉的一个具体故障、或报告/答辩里能拿出的数据。</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>实践与竞赛</h2>
-      <ul>
-        <li><span class="todo">【实习公司 / 实验室】</span>　<span class="todo">【岗位】</span>　<span class="todo">【202x.xx – 202x.xx】</span>：用两条写清你提交的代码或测试结果，没有实习就删掉这一条。</li>
-        <li>竞赛：<span class="todo">【电赛 / 物联网创新应用大赛 / 蓝桥杯嵌入式】【奖项与年份】</span>；没有奖项就写课程设计成绩或开源仓库，不要空挂比赛名。</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>自我评价</h2>
-      <ul>
-        <li>能独立把传感器接到 STM32 / ESP32，打通串口或 MQTT 上报，并用日志把偶发问题定位到任务或外设配置。</li>
-        <li>习惯先约定数据格式和失败路径（断网、校验失败、传感器超时），再写业务代码。</li>
-        <li>求职方向明确：设备端软件与物联网应用，可从驱动、协议联调或 Linux 应用做起。</li>
-      </ul>
-    </section>
-
-    <footer class="note">
-      打印隐藏。下一轮把学校、电话、真实项目名、仓库链接和可量化结果发过来，我按原稿改一版可直接投递的定稿。
-    </footer>
+      <section>
+        <div class="h"><span class="zh">自我评价</span><span class="en">Summary</span></div>
+        <ul>
+          <li>能把大模型接到真实场景：页面、多模型 API、Prompt 约束和 RAG 检索一起做完，而不是只接一个聊天窗口。</li>
+          <li>在金蝶做过实施：问清业务、写成方案、配到系统、教会用户，适应现场联调和返工。</li>
+          <li>物联网工程出身，求职 AI 应用开发或 FDE，做能写出来也能落地的一侧。</li>
+        </ul>
+      </section>
+    </div>
   </article>
 </body>
 </html>
