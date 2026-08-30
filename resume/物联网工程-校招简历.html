@@ -23,8 +23,8 @@
       background: #dfe6ee;
       color: var(--ink);
       font-family: "WenQuanYi Micro Hei", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: 12.5px;
-      line-height: 1.5;
+      font-size: 12.2px;
+      line-height: 1.45;
     }
 
     .hint {
@@ -73,7 +73,7 @@
     }
 
     .body {
-      padding: 6mm 15mm 8mm;
+      padding: 5mm 15mm 6mm;
     }
 
     .who {
@@ -122,12 +122,12 @@
       display: block;
     }
 
-    section { margin-top: 10px; }
+    section { margin-top: 7px; }
 
     .h {
       display: flex;
       align-items: stretch;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
 
     .h .zh {
@@ -164,7 +164,7 @@
     ul { padding-left: 1.15em; }
     li { margin: 2px 0; }
 
-    .item + .item { margin-top: 8px; }
+    .item + .item { margin-top: 5px; }
 
     .skills {
       display: grid;
@@ -242,6 +242,8 @@
         <dl class="skills">
           <dt>应用开发</dt>
           <dd>Vue、ElementUI；多模型统一接入与切换；熟练用 Cursor 做 Agent 辅助开发（拆需求、改代码、联调）</dd>
+          <dt>模型微调</dt>
+          <dd>HuggingFace Transformers、bert-base-chinese；Trainer API 做中文文本二分类微调（垃圾短信/邮件，输出 0/1）</dd>
           <dt>大模型</dt>
           <dd>Prompt 角色与约束；RAG（题库采集、切块、BM25）；LangChain @tool / create_agent、DashScope（ChatTongyi）工具编排</dd>
           <dt>实施交付</dt>
@@ -274,6 +276,17 @@
             <li>把 ChatTongyi 和工具列表交给 create_agent，按「规划-调用-再推理」执行：看工具结果再决定继续查还是直接给诊断。</li>
           </ul>
         </div>
+        <div class="item">
+          <div class="item-head">
+            <div class="left">垃圾邮件分类器　BERT 微调</div>
+          </div>
+          <div class="sub">HuggingFace Transformers · bert-base-chinese · Trainer API</div>
+          <ul>
+            <li>针对诈骗、广告、恶意链接等垃圾短信/邮件，微调 bert-base-chinese 做二分类：输入一段文本，输出 0（正常）或 1（垃圾）。</li>
+            <li>用 Transformers 加载中文预训练 BERT 并接分类头，tokenizer 编码文本，data_collator 组 batch，不手写训练循环。</li>
+            <li>Trainer + TrainingArguments：learning_rate=2e-5、batch_size=4、3 个 epoch、weight_decay=0.01，每个 epoch 评估并保存检查点。</li>
+          </ul>
+        </div>
       </section>
 
       <section>
@@ -291,7 +304,7 @@
       <section>
         <div class="h"><span class="zh">自我评价</span><span class="en">Summary</span></div>
         <ul>
-          <li>能把大模型接到真实场景：页面 + RAG，或工具编排做故障诊断，而不是只接一个聊天窗口。</li>
+          <li>既能调 API 做 RAG / Agent，也能用 HuggingFace 微调 bert-base-chinese 做中文垃圾邮件二分类，不停留在聊天窗口。</li>
           <li>在金蝶做过实施：问清业务、写成方案、配到系统、教会用户，适应现场联调和返工。</li>
           <li>物联网工程出身，求职 AI 应用开发或 FDE，做能写出来也能落地的一侧。</li>
         </ul>
