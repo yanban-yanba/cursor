@@ -1,0 +1,29 @@
+# 美国本土文化音频简报
+brand:
+  audience: "美国 40 岁以上用户"
+  product_line: "眼睛相关产品（视力健康、抗蓝光、老花、渐进镜片、日常护眼）"
+  market: "美国"
+
+# 北京时间每天 08:00 生成并推群；文件夹日期按此时区
+schedule:
+  hour: 8
+  minute: 0
+  timezone: "Asia/Shanghai"
+
+fetch:
+  per_category: 8
+  lookback_hours: 36
+  timeout_seconds: 20
+
+tts:
+  # 新闻播报感，语速略慢，方便 40+ 听
+  voice: "zh-CN-YunyangNeural"
+  rate: "-8%"
+
+web:
+  host: "0.0.0.0"
+  port: 8787
+
+feishu:
+  base_url: "https://open.feishu.cn"
+  receive_id_type: "chat_id"
