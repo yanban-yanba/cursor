@@ -37,9 +37,8 @@ function render(data) {
   brand.textContent = `${data.brand.market} · ${data.brand.audience} · ${data.brand.product_line}`;
 
   const next = document.getElementById("next-run");
-  if (data.schedule.next_run) {
-    const t = new Date(data.schedule.next_run);
-    next.textContent = `下次推送 ${t.toLocaleString("zh-CN")}`;
+  if (data.schedule.next_run_text) {
+    next.textContent = `下次推送 ${data.schedule.next_run_text}`;
   } else {
     next.textContent = `每天 ${pad(data.schedule.hour)}:${pad(data.schedule.minute)} ${data.schedule.timezone}`;
   }

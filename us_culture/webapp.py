@@ -33,6 +33,11 @@ def _payload_for(date: str) -> dict:
     briefing = load_briefing(run_dir) if run_dir.exists() else None
     status = load_status(run_dir) if run_dir.exists() else {}
     has_audio = (run_dir / "briefing.mp3").exists()
+    next_iso = next_run_iso()
+    next_text = None
+    if next_iso:
+        next_dt = datetime.fromisoformat(next_iso)
+        next_text = f"{next_dt.strftime('%Y-%m-%d %H:%M')} {settings.schedule.timezone}"
     return {
         "date": date,
         "categories": list(CATEGORIES),
@@ -40,7 +45,8 @@ def _payload_for(date: str) -> dict:
             "hour": settings.schedule.hour,
             "minute": settings.schedule.minute,
             "timezone": settings.schedule.timezone,
-            "next_run": next_run_iso(),
+            "next_run": next_iso,
+            "next_run_text": next_text,
         },
         "brand": {
             "audience": settings.brand.audience,
