@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>美国本土文化简报</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body data-date="{{ active_date }}" data-today="{{ today }}">
+  <header class="masthead">
+    <div>
+      <p class="kicker">美区热点 · 每日定时推群</p>
+      <h1>美国本土文化简报</h1>
+      <p class="sub">面向 40+ 用户群 · 眼睛相关产品线 · 语音可播</p>
+    </div>
+    <div class="meta">
+      <p>推送日 <strong>{{ today }}</strong></p>
+      <p>美东 <strong>{{ us_date }}</strong></p>
+      <p id="next-run">定时任务加载中</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="rail">
+      <section class="player-card">
+        <p class="label">今日音频</p>
+        <button id="play-btn" type="button" disabled>播放简报</button>
+        <audio id="player" preload="metadata"></audio>
+        <p id="player-hint" class="hint">还没有音频。先生成简报，或等早上定时任务。</p>
+        <div class="actions">
+          <button id="fetch-btn" type="button" class="ghost">抓取今日热点</button>
+          <button id="local-btn" type="button" class="ghost">生成本地音频</button>
+          <button id="run-btn" type="button" class="ghost">生成并推送飞书</button>
+        </div>
+        <p id="job-msg" class="hint"></p>
+      </section>
+      <section>
+        <p class="label">历史简报</p>
+        <ul id="history" class="history">
+          {% for day in history %}
+          <li><a href="/?date={{ day }}" class="{% if day == active_date %}active{% endif %}">{{ day }}</a></li>
+          {% endfor %}
+        </ul>
+        {% if not history %}
+        <p class="hint">暂无历史。</p>
+        {% endif %}
+      </section>
+    </aside>
+
+    <section class="paper">
+      <p id="brand-line" class="brand-line"></p>
+      <h2 id="brief-title">今日简报尚未生成</h2>
+      <div id="insight" class="insight" hidden></div>
+      <div id="sections"></div>
+      <div id="topics"></div>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
